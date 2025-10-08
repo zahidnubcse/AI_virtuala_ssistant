@@ -10,6 +10,7 @@ import image7 from "../assets/image7.jpeg";
 import { RiImageAddFill } from "react-icons/ri";
 import { userDataContext } from "../context/userContext.jsx";
 import { useNavigate } from "react-router-dom";
+import { IoArrowBackOutline } from "react-icons/io5";
 
 const Customize = () => {
   const {
@@ -33,7 +34,8 @@ const Customize = () => {
   const inputImage = useRef();
   return (
     <div className="w-full min-h-screen bg-gradient-to-t from-[#010007] to-[#020242] flex flex-col items-center justify-center">
-      <h1 className="text-white mt-2 text-3xl md:text-4xl font-semibold mb-10 text-center drop-shadow-md">
+     <IoArrowBackOutline onClick={()=> navigate("/")} className="absolute top-[30px] left-[30px] h-6 w-10 border hover:bg-blue-700 rounded-full text-white cursor-pointer"/>
+      <h1 className="text-white mt-15 text-3xl md:text-4xl font-semibold mb-10 text-center drop-shadow-md">
         Choose Your <span className="text-blue-400">Assistant image</span>
       </h1>
       <div className="w-[90%] max-w-6xl flex flex-wrap justify-center items-center gap-6">
@@ -71,7 +73,7 @@ const Customize = () => {
         />
       </div>
       {selectedImage && (
-        <button onClick={()=>navigate("/customize2")} className="w-28 h-12 mt-4 rounded-full font-semibold text-black bg-white cursor-pointer hover:bg-blue-200">
+        <button onClick={()=>navigate("/customize2")} className="w-28 h-12 mt-4 mb-4 rounded-full font-semibold text-black bg-white cursor-pointer hover:bg-blue-200">
           Next
         </button>
       )}

@@ -15,7 +15,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [err, setErr] = useState("")
   const [loading, setLoading] = useState(false)
-  const {serverUrl, userData, setuserData} = useContext(userDataContext)
+  const {serverUrl, userData, setUserData} = useContext(userDataContext)
 
   const handleSignUp = async (e)=>{
     e.preventDefault()
@@ -25,13 +25,13 @@ const SignUp = () => {
       let result = await axios.post(`${serverUrl}/api/auth/signup`,{
         name, email, password
       }, {withCredentials:true})
-       setuserData(result.data)
+       setUserData(result.data)
        setLoading(false)
        navigate("/customize")
       
      } catch (error) {
       console.log(error);
-      setuserData(null)
+      setUserData(null)
       setLoading(false)
       setErr(error.response.data.message)
       
